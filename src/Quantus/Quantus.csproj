@@ -50,5 +50,8 @@
     <Compile Include="Providers\OtherPluralProvider.cs" />
     <Compile Include="Providers\PolishPluralProvider.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Quantus.nuspec" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
