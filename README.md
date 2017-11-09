@@ -27,8 +27,10 @@ Currently only following languages are supported:
 
 Nuget package is available: https://www.nuget.org/packages/Quantus
 
-## Roadmap
+## Sitecore Implementation
 
-This is intial version of the library. There are plans to:
-* Add all languages,
-* Add ordinal numbering support.
+There is [Quantus.Sitecore](https://github.com/bartlomiejmucha/Quantus.Sitecore) library that provides basic integration of Quantus library for Sitecore.
+
+## What Next
+
+The aim is to implement providers for all languages and add a support for ordinal numbering. 
