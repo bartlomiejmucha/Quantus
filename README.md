@@ -23,6 +23,10 @@ Currently only following languages are supported:
 * Japanese,
 * Polish
 
+## Installation
+
+Nuget package is available: https://www.nuget.org/packages/Quantus
+
 ## Roadmap
 
 This is intial version of the library. There are plans to:
