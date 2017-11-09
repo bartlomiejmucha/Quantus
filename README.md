@@ -31,6 +31,6 @@ Nuget package is available: https://www.nuget.org/packages/Quantus
 
 There is [Quantus.Sitecore](https://github.com/bartlomiejmucha/Quantus.Sitecore) library that provides basic integration of Quantus library for Sitecore.
 
-## What Next
+## What next
 
 The aim is to implement providers for all languages and add a support for ordinal numbering. 
