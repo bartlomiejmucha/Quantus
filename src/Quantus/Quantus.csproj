@@ -45,9 +45,13 @@
   <ItemGroup>
     <Compile Include="PluralCategory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\GermanPluralProvider.cs" />
     <Compile Include="Providers\EnglishPluralProvider.cs" />
     <Compile Include="Providers\IPluralProvider.cs" />
+    <Compile Include="Providers\JapanesePluralProvider.cs" />
+    <Compile Include="Providers\FrenchPluralProvider.cs" />
     <Compile Include="Providers\OtherPluralProvider.cs" />
+    <Compile Include="Providers\DanishPluralProvider.cs" />
     <Compile Include="Providers\PolishPluralProvider.cs" />
   </ItemGroup>
   <ItemGroup>

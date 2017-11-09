@@ -4,12 +4,12 @@ using Xunit;
 
 namespace Quantus.Tests.Providers
 {
-    public class OtherPluralProviderTests
+    public class JapanesePluralProviderTests
     {
 	    [Fact]
 		public void ShouldReturnOtherCategory_Always()
 	    {
-		    var provider = new OtherPluralProvider();
+		    var provider = new JapanesePluralProvider();
 
 		    for (decimal n = -250; n < 250; n += 0.1M)
 		    {

@@ -6,6 +6,8 @@ namespace Quantus.Providers
     {
         public PluralCategory GetPluralCategory(decimal n)
         {
+            n = n < 0 ? -n : n;
+
             if (n == 1)
             {
                 return PluralCategory.One;

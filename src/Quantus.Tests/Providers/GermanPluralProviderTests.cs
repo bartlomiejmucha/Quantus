@@ -4,12 +4,12 @@ using Xunit;
 
 namespace Quantus.Tests.Providers
 {
-	public class EnglishPluralProviderTests
+	public class GermanPluralProviderTests
 	{
 		[Fact]
 		public void ShouldReturnOneCategory_ForNumberOne()
 		{
-			var provider = new EnglishPluralProvider();
+			var provider = new GermanPluralProvider();
 
 			provider.GetPluralCategory(1).ShouldBe(PluralCategory.One);
 			provider.GetPluralCategory(-1).ShouldBe(PluralCategory.One);
@@ -18,7 +18,7 @@ namespace Quantus.Tests.Providers
 		[Fact]
 		public void ShouldAlwaysReturnOtherCategory_ExceptForNumberOne()
 		{
-			var provider = new EnglishPluralProvider();
+			var provider = new GermanPluralProvider();
 
 			for (decimal n = -250; n < 250; n += 0.1M)
 			{

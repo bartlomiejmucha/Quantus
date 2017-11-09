@@ -1,28 +1,30 @@
 ﻿using Quantus.Providers;
 using Shouldly;
+using System;
 using Xunit;
 
 namespace Quantus.Tests.Providers
 {
-	public class PolishPluralProviderTests
+    public class PolishPluralProviderTests
 	{
 		[Fact]
-		public void ShouldReturnOneCategoryForNumberOne()
+		public void ShouldReturnOneCategory_ForNumberOne()
 		{
 			var provider = new PolishPluralProvider();
 
 			provider.GetPluralCategory(1).ShouldBe(PluralCategory.One);
+			provider.GetPluralCategory(-1).ShouldBe(PluralCategory.One);
 		}
 
 		[Fact]
-		public void ShouldReturnFewCategoryWhenReminderIsBetweenTwoAndFourButNotBetweenTwelveAndFourteen()
+		public void ShouldReturnFewCategory_WhenReminderIsBetweenTwoAndFourButNotBetweenTwelveAndFourteen()
 		{
 			var provider = new PolishPluralProvider();
 
-			for (decimal n = 0; n < 250; n += 1M)
+			for (decimal n = -250; n < 250; n += 1M)
 			{
-				var i10 = n % 10;
-				var i100 = n % 100;
+				var i10 = Math.Abs(n % 10);
+				var i100 = Math.Abs(n % 100);
 
 				if (i10 >= 2 && i10 <= 4 && i100 <= 12 && i100 >= 14)
 				{
@@ -32,15 +34,15 @@ namespace Quantus.Tests.Providers
 		}
 
 		[Fact]
-		public void ShouldReturnManyCategoryWhenNuberNotOneAndReminderIsZeroOrOne()
+		public void ShouldReturnManyCategory_WhenNuberNotOneAndReminderIsZeroOrOne()
 		{
 			var provider = new PolishPluralProvider();
 
-			for (decimal n = 0; n < 250; n += 1M)
+			for (decimal n = -250; n < 250; n += 1M)
 			{
-				var i10 = n % 10;
+				var i10 = Math.Abs(n % 10);
 
-				if (n != 1 && (i10 == 0 || i10 == 1))
+				if (n != 1 && n != -1 && (i10 == 0 || i10 == 1))
 				{
 					provider.GetPluralCategory(n).ShouldBe(PluralCategory.Many);
 				}
@@ -48,13 +50,13 @@ namespace Quantus.Tests.Providers
 		}
 
 		[Fact]
-		public void ShouldReturnManyCategoryWhenReminderBetweenFiveAndNine()
+		public void ShouldReturnManyCategory_WhenReminderBetweenFiveAndNine()
 		{
 			var provider = new PolishPluralProvider();
 
-			for (decimal n = 0; n < 250; n += 1M)
+			for (decimal n = -250; n < 250; n += 1M)
 			{
-				var i10 = n % 10;
+				var i10 = Math.Abs(n % 10);
 
 				if (i10 >= 5 && i10 <= 9)
 				{
@@ -64,13 +66,13 @@ namespace Quantus.Tests.Providers
 		}
 
 		[Fact]
-		public void ShouldReturnManyCategoryWhenReminderBetweenTwelveAndFourteen()
+		public void ShouldReturnManyCategory_WhenReminderBetweenTwelveAndFourteen()
 		{
 			var provider = new PolishPluralProvider();
 
-			for (decimal n = 0; n < 250; n += 1M)
+			for (decimal n = -250; n < 250; n += 1M)
 			{
-				var i100 = n % 100;
+				var i100 = Math.Abs(n % 100);
 
 				if (i100 >= 12 && i100 <= 14)
 				{
@@ -80,18 +82,18 @@ namespace Quantus.Tests.Providers
 		}
 
 		[Fact]
-		public void ShouldReturnOtherCategoryWhenThereIsDecimalDigit()
+		public void ShouldReturnOtherCategory_WhenThereIsDecimalDigit()
 		{
 			var provider = new PolishPluralProvider();
 
-			for (decimal n = 0; n < 250; n += 0.1M)
+			for (decimal n = -250; n < 250; n += 0.1M)
 			{
-				var i = (int) n;
-				if (i != n)
+				var i = (int) Math.Abs(n);
+				if (i != n && i != -n)
 				{
 					provider.GetPluralCategory(n).ShouldBe(PluralCategory.Other);
 				}
 			}
 		}
-	}
+    }
 }

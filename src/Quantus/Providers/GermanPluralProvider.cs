@@ -2,7 +2,7 @@
 
 namespace Quantus.Providers
 {
-    public class EnglishPluralProvider : ProviderBase, IPluralProvider
+    public class GermanPluralProvider : ProviderBase, IPluralProvider
     {
         public PluralCategory GetPluralCategory(decimal n)
         {

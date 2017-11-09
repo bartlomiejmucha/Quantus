@@ -2,11 +2,11 @@
 
 namespace Quantus.Providers
 {
-    public class EnglishPluralProvider : ProviderBase, IPluralProvider
+    public class JapanesePluralProvider : ProviderBase, IPluralProvider
     {
         public PluralCategory GetPluralCategory(decimal n)
         {
-            return n == 1 || n == -1 ? PluralCategory.One : PluralCategory.Other;
+            return PluralCategory.Other;
         }
     }
 }
